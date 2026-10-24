@@ -1,0 +1,329 @@
+/**
+ * Komfo Anokye Teaching Hospital (KATH) - IT Task Management System
+ * Custom Styling, Responsive Layout, and Print Stylesheet
+ */
+
+:root {
+    --primary-color: #0d47a1;
+    --primary-hover: #083478;
+    --primary-light: #e8f0fe;
+    --secondary-color: #1976d2;
+    --accent-color: #0288d1;
+    --kath-gold: #f59e0b;
+    --dark-navy: #0a192f;
+    --sidebar-bg: #0f172a;
+    --sidebar-color: #94a3b8;
+    --sidebar-hover: #ffffff;
+    --sidebar-active-bg: #1e293b;
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --border-color: #e2e8f0;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+    background-color: #f8fafc;
+    color: #1e293b;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Sidebar & Layout */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+    flex: 1;
+}
+
+.sidebar {
+    min-width: 260px;
+    max-width: 260px;
+    background: var(--sidebar-bg);
+    color: var(--sidebar-color);
+    transition: all 0.3s ease;
+    z-index: 1040;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar .sidebar-brand {
+    padding: 1.25rem 1rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.sidebar .nav-link {
+    color: var(--sidebar-color);
+    padding: 0.75rem 1.25rem;
+    font-size: 0.925rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    border-radius: 6px;
+    margin: 2px 10px;
+    transition: all 0.2s ease;
+}
+
+.sidebar .nav-link i {
+    font-size: 1.15rem;
+    margin-right: 0.75rem;
+}
+
+.sidebar .nav-link:hover {
+    color: var(--sidebar-hover);
+    background-color: var(--sidebar-active-bg);
+}
+
+.sidebar .nav-link.active {
+    color: #ffffff;
+    background: linear-gradient(90deg, #1d4ed8 0%, #2563eb 100%);
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.4);
+}
+
+.sidebar-heading {
+    text-transform: uppercase;
+    font-size: 0.72rem;
+    letter-spacing: 1px;
+    padding: 1rem 1.25rem 0.25rem;
+    color: #64748b;
+    font-weight: 700;
+}
+
+.sidebar-user {
+    padding: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.main-content {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: #f1f5f9;
+}
+
+.top-navbar {
+    background: #ffffff;
+    border-bottom: 1px solid var(--border-color);
+    padding: 0.75rem 1.5rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+/* Metric / KPI Cards */
+.kpi-card {
+    background: #ffffff;
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--card-shadow);
+    padding: 1.25rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.kpi-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.kpi-card .kpi-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.kpi-card.border-primary-kpi { border-left: 4px solid #2563eb; }
+.kpi-card.border-success-kpi { border-left: 4px solid #10b981; }
+.kpi-card.border-warning-kpi { border-left: 4px solid #f59e0b; }
+.kpi-card.border-danger-kpi { border-left: 4px solid #ef4444; }
+.kpi-card.border-info-kpi { border-left: 4px solid #06b6d4; }
+.kpi-card.border-purple-kpi { border-left: 4px solid #8b5cf6; }
+
+/* Timeline for Task History Updates */
+.timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin: 1rem 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 9px;
+    width: 2px;
+    background: #cbd5e1;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -2rem;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #2563eb;
+    border: 3px solid #ffffff;
+    box-shadow: 0 0 0 2px #cbd5e1;
+}
+
+.timeline-content {
+    background: #ffffff;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 0.85rem 1.15rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+/* Badges & Tables */
+.table th {
+    background-color: #f8fafc;
+    color: #475569;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.table td {
+    vertical-align: middle;
+    font-size: 0.92rem;
+}
+
+.badge {
+    font-weight: 500;
+    letter-spacing: 0.3px;
+    padding: 0.4em 0.65em;
+}
+
+/* Task Number Pill */
+.task-number-pill {
+    font-family: monospace;
+    font-weight: 700;
+    color: #1e3a8a;
+    background-color: #dbeafe;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #bfdbfe;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.task-number-pill:hover {
+    background-color: #bfdbfe;
+    color: #1e40af;
+}
+
+/* Responsive Sidebar toggling */
+@media (max-width: 991.98px) {
+    .sidebar {
+        margin-left: -260px;
+        position: fixed;
+        height: 100vh;
+        top: 0;
+        bottom: 0;
+        left: 0;
+    }
+    .sidebar.show {
+        margin-left: 0;
+    }
+    .sidebar-overlay {
+        display: none;
+        position: fixed;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(0, 0, 0, 0.4);
+        z-index: 1035;
+        top: 0;
+        left: 0;
+    }
+    .sidebar-overlay.show {
+        display: block;
+    }
+}
+
+/* Print Friendly Styles */
+@media print {
+    body {
+        background: #ffffff !important;
+        color: #000000 !important;
+    }
+    .sidebar, 
+    .top-navbar, 
+    .no-print, 
+    .btn, 
+    .alert, 
+    .pagination, 
+    footer,
+    .filter-card,
+    .sidebar-overlay {
+        display: none !important;
+    }
+    .main-content {
+        background: #ffffff !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+    }
+    .container-fluid {
+        padding: 0 !important;
+    }
+    .card {
+        border: none !important;
+        box-shadow: none !important;
+    }
+    .print-header {
+        display: block !important;
+        margin-bottom: 25px !important;
+        border-bottom: 2px solid #000000 !important;
+        padding-bottom: 12px !important;
+    }
+    .table th {
+        background-color: #f1f1f1 !important;
+        color: #000000 !important;
+        border: 1px solid #333333 !important;
+    }
+    .table td {
+        border: 1px solid #dddddd !important;
+        color: #000000 !important;
+    }
+    .print-signature-area {
+        display: flex !important;
+        justify-content: space-between !important;
+        margin-top: 50px !important;
+        page-break-inside: avoid;
+    }
+    .badge {
+        border: 1px solid #666666 !important;
+        color: #000000 !important;
+        background: #ffffff !important;
+    }
+}
+
+.print-header {
+    display: none;
+}
+.print-signature-area {
+    display: none;
+}
